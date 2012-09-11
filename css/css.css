@@ -1,0 +1,13 @@
+body {
+	background-color: #EEE;
+}
+
+.main_screen {
+	width: 320px;
+	height: 180px;
+	border: 1px solid #444;
+}
+
+.canvas {
+	background-color: #CCC;
+}
