@@ -29,6 +29,29 @@ Game.prototype = {
 	}
 };
 
+Game.checkAutoValues = function(object, canvasW, canvasH) {
+	//
+	console.log('Game.checkAutoValues('+object+', '+canvasW+', '+canvasH+')');
+	//
+	if (object.left == Game.AUTO_CENTER) {
+		object.left = (canvasW - object.width)/2;
+	}
+	if (object.top == Game.AUTO_CENTER) {
+		object.top = (canvasH - object.height)/2;
+	}
+};
+
+Game.getMousePos = function(event) {
+	var root = document.documentElement;
+	var canvas = event.target;
+	var rect = canvas.getBoundingClientRect();
+	var mouseX = event.clientX - rect.top - root.scrollTop;
+	var mouseY = event.clientY - rect.left - root.scrollLeft;
+	return {x: mouseX, y: mouseY};
+};
+
+Game.AUTO_CENTER = 'auto-center';
+
 Game.SCREEN_MAIN_MENU = 0;
 Game.SCREEN_HELP = 1;
 Game.SCREEN_GAME = 2;

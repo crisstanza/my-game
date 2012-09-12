@@ -13,8 +13,11 @@ function createScriptNode(path) {
 	return script;
 }
   
-appendHeadChild(createScriptNode('js/Game.js?v=1'));
-appendHeadChild(createScriptNode('js/MyGame.js?v=1'));
+appendHeadChild(createScriptNode('js/Game.js'));
+appendHeadChild(createScriptNode('js/MyGame.js'));
+appendHeadChild(createScriptNode('js/ScreenMainMenu.js'));
+appendHeadChild(createScriptNode('js/ScreenGame.js'));
+appendHeadChild(createScriptNode('js/ScreenHelp.js'));
   
 window.onload = function() {
 	var myGame = new MyGame('canvas');
