@@ -42,12 +42,11 @@ Game.checkAutoValues = function(object, canvasW, canvasH) {
 };
 
 Game.getMousePos = function(event) {
-	var root = document.documentElement;
-	var canvas = event.target;
-	var rect = canvas.getBoundingClientRect();
-	var mouseX = event.clientX - rect.top - root.scrollTop;
-	var mouseY = event.clientY - rect.left - root.scrollLeft;
-	return {x: mouseX, y: mouseY};
+	var rect = event.target.getBoundingClientRect();
+	return {
+		x: event.clientX - rect.left,
+		y: event.clientY - rect.top
+	};
 };
 
 Game.AUTO_CENTER = 'auto-center';
