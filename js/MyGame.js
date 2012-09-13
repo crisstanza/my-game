@@ -1,9 +1,8 @@
-function MyGame(canvasId) {
+function MyGame() {
 	//
-	Game.console.log('MyGame('+canvasId+')');
+	Game.console.log('MyGame()');
 	//
 	this.setSon(this);
-	this.setCanvas(canvasId);
 	//
 	this.screenMainMenu = new ScreenMainMenu();
 	this.screenHelp = new ScreenHelp();
@@ -14,9 +13,9 @@ function MyGame(canvasId) {
 
 MyGame.instance = null;
 
-MyGame.getInstance = function(canvasId) {
+MyGame.getInstance = function() {
 	if ( MyGame.instance == null )  {
-		MyGame.instance = new MyGame(canvasId);
+		MyGame.instance = new MyGame();
 	}
 	return MyGame.instance;
 }

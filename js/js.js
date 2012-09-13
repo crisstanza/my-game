@@ -20,6 +20,7 @@ appendHeadChild(createScriptNode('js/ScreenGame.js'));
 appendHeadChild(createScriptNode('js/ScreenHelp.js'));
   
 window.onload = function() {
-	var myGame = MyGame.getInstance('canvas');
+	var myGame = MyGame.getInstance();
+	myGame.setCanvas('canvas');
 	myGame.start();
 };
