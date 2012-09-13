@@ -26,6 +26,9 @@ MyGame.prototype.draw = function(canvas) {
 	//
 	Game.console.log('MyGame.draw('+canvas+')');
 	//
+	canvas.removeEventListener('click', this.screenMainMenu.onClick, false);
+	canvas.removeEventListener('click', this.screenHelp.onClick, false);
+	//
 	if (this.currentScreen == Game.SCREEN_MAIN_MENU) {
 		canvas.addEventListener('click', this.screenMainMenu.onClick, false);
 		this.screenMainMenu.draw(canvas);

@@ -98,7 +98,8 @@ ScreenMainMenu.prototype = {
 		Game.console.log('    ScreenMainMenu.onClick('+event+')');
 		//
 		var point = Game.getMousePos(event);
-		if (Game.collides(point, this.option1)) {
+		//
+		if (Game.collides(point, this.option2)) {
 			MyGame.getInstance().currentScreen = Game.SCREEN_HELP;
 			MyGame.getInstance().refresh();
 		}
