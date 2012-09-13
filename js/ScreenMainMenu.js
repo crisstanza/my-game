@@ -1,16 +1,10 @@
 function ScreenMainMenu() {
+	//
+	Game.console.log('ScreenMainMenu()');
+	//
 	this.mainTitle = new MainTitle();
 	this.option1 = new Option1();
 	this.option2 = new Option2();
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-	this.onClick = function(event) {
-		//
-		console.log('    MainTitle.onClick('+event+')');
-		//
-		var point = Game.getMousePos(event);
-	};
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -23,7 +17,7 @@ function ScreenMainMenu() {
 
 	MainTitle.prototype.draw = function(canvas) {
 		//
-		console.log('    MainTitle.draw('+canvas+')');
+		Game.console.log('    MainTitle.draw('+canvas+')');
 		//
 		var canvasContext = canvas.getContext('2d');
 		var canvasW = canvas.width;
@@ -46,7 +40,7 @@ function ScreenMainMenu() {
 
 	Option1.prototype.draw = function(canvas) {
 		//
-		console.log('    Option1.draw('+canvas+')');
+		Game.console.log('    Option1.draw('+canvas+')');
 		//
 		var canvasContext = canvas.getContext('2d');
 		var canvasW = canvas.width;
@@ -54,7 +48,7 @@ function ScreenMainMenu() {
 		//
 		Game.checkAutoValues(this, canvasW, canvasH);
 		//
-		canvasContext.fillStyle = '#0F0';
+		canvasContext.fillStyle = '#00F';
 		canvasContext.fillRect(this.left, this.top, this.width, this.height);
 	};
 
@@ -69,7 +63,7 @@ function ScreenMainMenu() {
 
 	Option2.prototype.draw = function(canvas) {
 		//
-		console.log('    Option2.draw('+canvas+')');
+		Game.console.log('    Option2.draw('+canvas+')');
 		//
 		var canvasContext = canvas.getContext('2d');
 		var canvasW = canvas.width;
@@ -84,11 +78,29 @@ function ScreenMainMenu() {
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 }
 
-ScreenMainMenu.prototype.draw = function(canvas) {
-	//
-	console.log('  ScreenMainMenu.draw('+canvas+')');
-	//
-	this.mainTitle.draw(canvas);
-	this.option1.draw(canvas);
-	this.option2.draw(canvas);
+ScreenMainMenu.prototype = {
+	draw: function(canvas) {
+		//
+		Game.console.log('  ScreenMainMenu.draw('+canvas+')');
+		//
+		var canvasContext = canvas.getContext('2d');
+		var canvasW = canvas.width;
+		var canvasH = canvas.height;
+		//
+		canvasContext.clearRect(0, 0, canvasW, canvasH);
+		//
+		this.mainTitle.draw(canvas);
+		this.option1.draw(canvas);
+		this.option2.draw(canvas);
+	},
+	onClick: function(event) {
+		//
+		Game.console.log('    ScreenMainMenu.onClick('+event+')');
+		//
+		var point = Game.getMousePos(event);
+		if (Game.collides(point, this.option1)) {
+			MyGame.getInstance().currentScreen = Game.SCREEN_HELP;
+			MyGame.getInstance().refresh();
+		}
+	}
 };

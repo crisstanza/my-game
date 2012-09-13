@@ -1,6 +1,6 @@
 function Game() {
 	//
-	console.log('Game()');
+	Game.console.log('Game()');
 	//
 	this.canvas = null;
 	//
@@ -8,22 +8,36 @@ function Game() {
 	this.son = null;
 }
 
+Game.LOG = false;
+
+Game.AUTO_CENTER = 'auto-center';
+
+Game.SCREEN_MAIN_MENU = 0;
+Game.SCREEN_HELP = 1;
+Game.SCREEN_GAME = 2;
+
 Game.prototype = {
 	setSon: function(_son) {
 		//
-		console.log('Game.setSon('+_son+')');
+		Game.console.log('Game.setSon('+_son+')');
 		//
 		son = _son;
 	},
 	setCanvas: function(canvasId) {
 		//
-		console.log('Game.setCanvas('+canvasId+')');
+		Game.console.log('Game.setCanvas('+canvasId+')');
 		//
 		canvas = document.getElementById(canvasId);
 	},
 	start: function() {
 		//
-		console.log('Game.start()');
+		Game.console.log('Game.start()');
+		//
+		son.draw(canvas);
+	},
+	refresh: function() {
+		//
+		Game.console.log('Game.refresh()');
 		//
 		son.draw(canvas);
 	}
@@ -31,7 +45,7 @@ Game.prototype = {
 
 Game.checkAutoValues = function(object, canvasW, canvasH) {
 	//
-	console.log('Game.checkAutoValues('+object+', '+canvasW+', '+canvasH+')');
+	Game.console.log('Game.checkAutoValues('+object+', '+canvasW+', '+canvasH+')');
 	//
 	if (object.left == Game.AUTO_CENTER) {
 		object.left = (canvasW - object.width)/2;
@@ -49,8 +63,14 @@ Game.getMousePos = function(event) {
 	};
 };
 
-Game.AUTO_CENTER = 'auto-center';
+Game.collides = function(point, rectangle) {
+	return true;
+};
 
-Game.SCREEN_MAIN_MENU = 0;
-Game.SCREEN_HELP = 1;
-Game.SCREEN_GAME = 2;
+Game.console = {
+	log: function(msg) {
+		if (Game.LOG === true) {
+			console.log(msg);
+		}
+	}
+};
