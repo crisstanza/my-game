@@ -6,13 +6,23 @@ function appendHeadChild(node) {
 	document.getElementsByTagName('head')[0].appendChild(node);
 }
 
-function createScriptNode(path) {
-	var script = document.createElement('script');
-	script.setAttribute('type', 'text/javascript');
-	script.setAttribute('src', path);
-	return script;
+function createLinkNode(path) {
+	var node = document.createElement('link');
+	node.setAttribute('type', 'text/css');
+	node.setAttribute('rel', 'stylesheet');
+	node.setAttribute('href', path);
+	return node;
 }
-  
+
+function createScriptNode(path) {
+	var node = document.createElement('script');
+	node.setAttribute('type', 'text/javascript');
+	node.setAttribute('src', path);
+	return node;
+}
+
+appendHeadChild(createLinkNode('css/css.css'));
+
 appendHeadChild(createScriptNode('js/Game.js'));
 appendHeadChild(createScriptNode('js/MyGame.js'));
 appendHeadChild(createScriptNode('js/ScreenMainMenu.js'));

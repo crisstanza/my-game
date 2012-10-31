@@ -35,6 +35,9 @@ MyGame.prototype.draw = function(canvas) {
 	} else if (this.currentScreen == Game.SCREEN_HELP) {
 		canvas.addEventListener('click', this.screenHelp.onClick, false);
 		this.screenHelp.draw(canvas);
+	} else if (this.currentScreen == Game.SCREEN_GAME) {
+		canvas.addEventListener('click', this.screenGame.onClick, false);
+		this.screenGame.draw(canvas);
 	}
 };
 

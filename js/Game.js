@@ -8,7 +8,7 @@ function Game() {
 	this.son = null;
 }
 
-Game.LOG = false;
+Game.LOG = true;
 
 Game.AUTO_CENTER = 'auto-center';
 
