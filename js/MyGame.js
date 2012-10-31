@@ -8,7 +8,7 @@ function MyGame() {
 	this.screenHelp = new ScreenHelp();
 	this.screenGame = new ScreenGame();
 	//
-	Game.LOG = true;
+	Game.LOG = false;
 }
 
 MyGame.instance = null;

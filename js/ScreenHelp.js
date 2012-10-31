@@ -74,7 +74,7 @@ ScreenHelp.prototype = {
 		//
 		var point = Game.getMousePos(event);
 		//
-		if (Game.collides(point, this.option1)) {
+		if (Game.collides(point, MyGame.getInstance().screenHelp.option1)) {
 			MyGame.getInstance().currentScreen = Game.SCREEN_MAIN_MENU;
 			MyGame.getInstance().refresh();
 		}

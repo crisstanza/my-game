@@ -92,6 +92,7 @@ ScreenMainMenu.prototype = {
 		this.mainTitle.draw(canvas);
 		this.option1.draw(canvas);
 		this.option2.draw(canvas);
+
 	},
 	onClick: function(event) {
 		//
@@ -99,10 +100,10 @@ ScreenMainMenu.prototype = {
 		//
 		var point = Game.getMousePos(event);
 		//
-		if (Game.collides(point, this.option1)) {
+		if (Game.collides(point, MyGame.getInstance().screenMainMenu.option1)) {
 			MyGame.getInstance().currentScreen = Game.SCREEN_GAME;
 			MyGame.getInstance().refresh();
-		} else if (Game.collides(point, this.option2)) {
+		} else if (Game.collides(point, MyGame.getInstance().screenMainMenu.option2)) {
 			MyGame.getInstance().currentScreen = Game.SCREEN_HELP;
 			MyGame.getInstance().refresh();
 		}

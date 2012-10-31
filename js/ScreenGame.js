@@ -20,7 +20,5 @@ ScreenGame.prototype = {
 		//
 		Game.console.log('  ScreenGame.onClick('+event+')');
 		//
-		var point = Game.getMousePos(event);
-		//
 	}
 };

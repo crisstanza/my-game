@@ -8,7 +8,7 @@ function Game() {
 	this.son = null;
 }
 
-Game.LOG = true;
+Game.LOG = false;
 
 Game.AUTO_CENTER = 'auto-center';
 
@@ -64,7 +64,10 @@ Game.getMousePos = function(event) {
 };
 
 Game.collides = function(point, rectangle) {
-	return true;
+	return (
+		point.x >= rectangle.left && point.x <= (rectangle.left + rectangle.width) &&
+		point.y >= rectangle.top && point.y <= (rectangle.top + rectangle.height)
+	);
 };
 
 Game.console = {
