@@ -58,8 +58,8 @@ Game.checkAutoValues = function(object, canvasW, canvasH) {
 Game.getMousePos = function(event) {
 	var rect = event.target.getBoundingClientRect();
 	return {
-		x: event.clientX - rect.left,
-		y: event.clientY - rect.top
+		x: event.clientX - rect.left - 1,
+		y: event.clientY - rect.top - 1
 	};
 };
 
